@@ -9,11 +9,14 @@
 /* Begin PBXBuildFile section */
 		3E2542FC1A10BC2D005096B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2542FB1A10BC2D005096B8 /* main.m */; };
 		3E2542FF1A10BC2D005096B8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2542FE1A10BC2D005096B8 /* AppDelegate.m */; };
-		3E2543021A10BC2D005096B8 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2543011A10BC2D005096B8 /* ViewController.m */; };
+		3E2543021A10BC2D005096B8 /* PhotoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2543011A10BC2D005096B8 /* PhotoViewController.m */; };
 		3E2543051A10BC2D005096B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3E2543031A10BC2D005096B8 /* Main.storyboard */; };
 		3E2543071A10BC2D005096B8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3E2543061A10BC2D005096B8 /* Images.xcassets */; };
 		3E25430A1A10BC2D005096B8 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3E2543081A10BC2D005096B8 /* LaunchScreen.xib */; };
 		3E2543161A10BC2D005096B8 /* AllThePhotoesTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E2543151A10BC2D005096B8 /* AllThePhotoesTests.m */; };
+		3E2543201A10CAA1005096B8 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3E25431F1A10CAA1005096B8 /* MapKit.framework */; };
+		3E49956D1A15187A008C5F02 /* MyLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E49956C1A15187A008C5F02 /* MyLocation.m */; };
+		3F6843F83456D4B58A2191BF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BF38E768CA1B5E781A71908 /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +30,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2BF38E768CA1B5E781A71908 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2542F61A10BC2D005096B8 /* AllThePhotoes.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AllThePhotoes.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2542FA1A10BC2D005096B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2542FB1A10BC2D005096B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		3E2542FD1A10BC2D005096B8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3E2542FE1A10BC2D005096B8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		3E2543001A10BC2D005096B8 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		3E2543011A10BC2D005096B8 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		3E2543001A10BC2D005096B8 /* PhotoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhotoViewController.h; sourceTree = "<group>"; };
+		3E2543011A10BC2D005096B8 /* PhotoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PhotoViewController.m; sourceTree = "<group>"; };
 		3E2543041A10BC2D005096B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		3E2543061A10BC2D005096B8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		3E2543091A10BC2D005096B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		3E25430F1A10BC2D005096B8 /* AllThePhotoesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AllThePhotoesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3E2543141A10BC2D005096B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3E2543151A10BC2D005096B8 /* AllThePhotoesTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AllThePhotoesTests.m; sourceTree = "<group>"; };
+		3E25431F1A10CAA1005096B8 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		3E49956B1A15187A008C5F02 /* MyLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyLocation.h; sourceTree = "<group>"; };
+		3E49956C1A15187A008C5F02 /* MyLocation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyLocation.m; sourceTree = "<group>"; };
+		990D5DD5AF92E783AE6134E0 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
+		E34F06AA9D53CC32F29CB8D8 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3E2543201A10CAA1005096B8 /* MapKit.framework in Frameworks */,
+				3F6843F83456D4B58A2191BF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,9 +74,12 @@
 		3E2542ED1A10BC2D005096B8 = {
 			isa = PBXGroup;
 			children = (
+				3E25431F1A10CAA1005096B8 /* MapKit.framework */,
 				3E2542F81A10BC2D005096B8 /* AllThePhotoes */,
 				3E2543121A10BC2D005096B8 /* AllThePhotoesTests */,
 				3E2542F71A10BC2D005096B8 /* Products */,
+				9CA688BFC5555780D2B789CC /* Pods */,
+				CA49E030E939C4FD64D5B4C8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +95,12 @@
 		3E2542F81A10BC2D005096B8 /* AllThePhotoes */ = {
 			isa = PBXGroup;
 			children = (
+				3E49956B1A15187A008C5F02 /* MyLocation.h */,
+				3E49956C1A15187A008C5F02 /* MyLocation.m */,
 				3E2542FD1A10BC2D005096B8 /* AppDelegate.h */,
 				3E2542FE1A10BC2D005096B8 /* AppDelegate.m */,
-				3E2543001A10BC2D005096B8 /* ViewController.h */,
-				3E2543011A10BC2D005096B8 /* ViewController.m */,
+				3E2543001A10BC2D005096B8 /* PhotoViewController.h */,
+				3E2543011A10BC2D005096B8 /* PhotoViewController.m */,
 				3E2543031A10BC2D005096B8 /* Main.storyboard */,
 				3E2543061A10BC2D005096B8 /* Images.xcassets */,
 				3E2543081A10BC2D005096B8 /* LaunchScreen.xib */,
@@ -119,6 +135,23 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		9CA688BFC5555780D2B789CC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				E34F06AA9D53CC32F29CB8D8 /* Pods.debug.xcconfig */,
+				990D5DD5AF92E783AE6134E0 /* Pods.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		CA49E030E939C4FD64D5B4C8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BF38E768CA1B5E781A71908 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +159,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 3E2543191A10BC2D005096B8 /* Build configuration list for PBXNativeTarget "AllThePhotoes" */;
 			buildPhases = (
+				315D02598A8653E605A111D7 /* Check Pods Manifest.lock */,
 				3E2542F21A10BC2D005096B8 /* Sources */,
 				3E2542F31A10BC2D005096B8 /* Frameworks */,
 				3E2542F41A10BC2D005096B8 /* Resources */,
+				E487485B4AFD756E08D4CDE2 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -168,6 +203,11 @@
 				TargetAttributes = {
 					3E2542F51A10BC2D005096B8 = {
 						CreatedOnToolsVersion = 6.0.1;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 					3E25430E1A10BC2D005096B8 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -214,13 +254,47 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		315D02598A8653E605A111D7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		E487485B4AFD756E08D4CDE2 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		3E2542F21A10BC2D005096B8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3E2543021A10BC2D005096B8 /* ViewController.m in Sources */,
+				3E2543021A10BC2D005096B8 /* PhotoViewController.m in Sources */,
 				3E2542FF1A10BC2D005096B8 /* AppDelegate.m in Sources */,
+				3E49956D1A15187A008C5F02 /* MyLocation.m in Sources */,
 				3E2542FC1A10BC2D005096B8 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -341,6 +415,7 @@
 		};
 		3E25431A1A10BC2D005096B8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E34F06AA9D53CC32F29CB8D8 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AllThePhotoes/Info.plist;
@@ -351,6 +426,7 @@
 		};
 		3E25431B1A10BC2D005096B8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 990D5DD5AF92E783AE6134E0 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = AllThePhotoes/Info.plist;
@@ -412,6 +488,7 @@
 				3E25431B1A10BC2D005096B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3E25431C1A10BC2D005096B8 /* Build configuration list for PBXNativeTarget "AllThePhotoesTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +497,7 @@
 				3E25431E1A10BC2D005096B8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

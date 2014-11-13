@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6245" systemVersion="13F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6238"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Photo View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="PhotoViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,11 +16,115 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jgs-Ta-szN">
+                                <rect key="frame" x="489" y="562" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="T0H-0c-vPP"/>
+                                </constraints>
+                                <state key="normal" title="Camera">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cameraButtonPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="6Cy-Ew-jQC"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9eA-Qr-AnM">
+                                <rect key="frame" x="55" y="562" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="6lg-M3-Ape"/>
+                                    <constraint firstAttribute="width" constant="57" id="a5L-UO-sz3"/>
+                                </constraints>
+                                <state key="normal" title="Album">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="albumButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="lXw-Gv-veq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vph-v7-y7E">
+                                <rect key="frame" x="272" y="562" width="57" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="57" id="DLe-Hb-nms"/>
+                                </constraints>
+                                <state key="normal" title="Library">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="libraryButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="vKe-de-H3w"/>
+                                </connections>
+                            </button>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" showsUserLocation="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4ID-l3-Npn">
+                                <rect key="frame" x="16" y="161" width="568" height="399"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="399" id="fQt-a3-Zd4"/>
+                                </constraints>
+                            </mapView>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GSM-8y-Txf">
+                                <rect key="frame" x="276" y="20" width="51" height="31"/>
+                                <connections>
+                                    <action selector="switchChanged:" destination="vXZ-lx-hvc" eventType="valueChanged" id="AAP-gg-p34"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w6y-9I-LFP">
+                                <rect key="frame" x="454" y="0.0" width="83" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="83" id="jTU-wP-Ljn"/>
+                                    <constraint firstAttribute="height" constant="21" id="vBY-vC-wCn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xY6-9v-Nln">
+                                <rect key="frame" x="16" y="20" width="96" height="30"/>
+                                <state key="normal" title="Notification">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="notificationButtonPressed:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="Gkj-bd-T3K"/>
+                                </connections>
+                            </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="el-palmar-vista-playa" translatesAutoresizingMaskIntoConstraints="NO" id="HQM-98-h7A">
+                                <rect key="frame" x="133" y="59" width="334" height="94"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="jgs-Ta-szN" firstAttribute="baseline" secondItem="vph-v7-y7E" secondAttribute="baseline" id="4FT-kR-sgt"/>
+                            <constraint firstItem="vph-v7-y7E" firstAttribute="baseline" secondItem="9eA-Qr-AnM" secondAttribute="baseline" id="6F0-Y3-E8A"/>
+                            <constraint firstItem="GSM-8y-Txf" firstAttribute="centerX" secondItem="HQM-98-h7A" secondAttribute="centerX" id="6fO-Vu-64q"/>
+                            <constraint firstItem="xY6-9v-Nln" firstAttribute="leading" secondItem="HQM-98-h7A" secondAttribute="leading" constant="-117" id="7kL-16-QYz"/>
+                            <constraint firstItem="4ID-l3-Npn" firstAttribute="top" secondItem="HQM-98-h7A" secondAttribute="bottom" constant="8" symbolic="YES" id="EfS-vK-NOE"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="w6y-9I-LFP" secondAttribute="trailing" constant="47" id="GvU-Q0-HBp"/>
+                            <constraint firstItem="xY6-9v-Nln" firstAttribute="trailing" secondItem="9eA-Qr-AnM" secondAttribute="trailing" id="IQX-K9-Cgn"/>
+                            <constraint firstItem="4ID-l3-Npn" firstAttribute="trailing" secondItem="kh9-bI-dsS" secondAttribute="trailingMargin" id="LX3-de-xer"/>
+                            <constraint firstItem="4ID-l3-Npn" firstAttribute="leading" secondItem="HQM-98-h7A" secondAttribute="leading" constant="-117" id="OGS-Z7-MDX"/>
+                            <constraint firstItem="HQM-98-h7A" firstAttribute="trailing" secondItem="4ID-l3-Npn" secondAttribute="trailing" constant="-117" id="PyN-Kn-Ap9"/>
+                            <constraint firstItem="HQM-98-h7A" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="117" id="QkM-Cy-bsg"/>
+                            <constraint firstItem="GSM-8y-Txf" firstAttribute="top" secondItem="HQM-98-h7A" secondAttribute="top" constant="-39" id="T8l-4L-068"/>
+                            <constraint firstItem="HQM-98-h7A" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="39" id="aB3-OF-KGR"/>
+                            <constraint firstItem="9eA-Qr-AnM" firstAttribute="top" secondItem="4ID-l3-Npn" secondAttribute="bottom" constant="2" id="c5g-en-vGK"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="jgs-Ta-szN" secondAttribute="trailing" constant="38" id="cYB-Tb-YEs"/>
+                            <constraint firstItem="xY6-9v-Nln" firstAttribute="top" secondItem="GSM-8y-Txf" secondAttribute="top" id="knI-Nv-XHB"/>
+                            <constraint firstItem="9eA-Qr-AnM" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="39" id="l9I-Bm-Xqv"/>
+                            <constraint firstItem="w6y-9I-LFP" firstAttribute="top" secondItem="kh9-bI-dsS" secondAttribute="top" id="odz-fv-GD4"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="9eA-Qr-AnM" secondAttribute="bottom" constant="8" symbolic="YES" id="oti-eJ-Ups"/>
+                            <constraint firstItem="4ID-l3-Npn" firstAttribute="centerX" secondItem="vph-v7-y7E" secondAttribute="centerX" id="ybT-c4-mov"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="batteryLabel" destination="w6y-9I-LFP" id="5da-1T-eZr"/>
+                        <outlet property="mapView" destination="4ID-l3-Npn" id="L0Q-ks-uAS"/>
+                        <outlet property="theImageView" destination="HQM-98-h7A" id="rgb-YA-se5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="99" y="136"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="el-palmar-vista-playa" width="550" height="220"/>
+    </resources>
 </document>
