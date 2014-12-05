@@ -13,15 +13,17 @@
 #import <AFNetworking.h>
 #import "MyLocation.h"
 
+@import CoreBluetooth;
 @import AudioToolbox;
 @import AVFoundation;
 
-@interface PhotoViewController () <UINavigationControllerDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate>
+@interface PhotoViewController () <MKMapViewDelegate,UINavigationControllerDelegate, UIImagePickerControllerDelegate,CLLocationManagerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *theImageView;
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
 @property (nonatomic)  BOOL photoIsFromCamera;
 @property (weak, nonatomic) IBOutlet UILabel *batteryLabel;
 @property (strong, nonatomic) CLLocationManager *locationManager;
+@property (nonatomic, strong) CLBeaconRegion *region;
 @end
 
 @implementation PhotoViewController
@@ -42,14 +44,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    CBCentralManager *testBluetooth = [[CBCentralManager alloc] initWithDelegate:nil queue:nil];
+    CBCentralManagerState state = [testBluetooth state];
+    
     self.locationManager = [[CLLocationManager alloc] init];
     self.locationManager.delegate = self;
     self.mapView.delegate = self;
     // Check for iOS 8. Without this guard the code will crash with "unknown selector" on iOS 7.
-    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+    if (CLLocationManager.authorizationStatus == kCLAuthorizationStatusAuthorizedAlways || CLLocationManager.authorizationStatus == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        [self setUpLocationStuff];
+    }else{
         [self.locationManager requestWhenInUseAuthorization];
     }
-    [self.locationManager startUpdatingLocation];
+    
+    
+//    if ([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
+//        [self.locationManager requestWhenInUseAuthorization];
+//    }
+    
+    
     
     [self viewBatteryLevel];
     
@@ -282,6 +295,19 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
     
     if (self.photoIsFromCamera) {
+        
+        CIImage *image = [self.theImageView.image CIImage];
+        CIContext *context = [CIContext contextWithOptions:nil];
+        NSDictionary *opts = @{CIDetectorAccuracy: CIDetectorAccuracyHigh};
+        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeFace context:context options:opts];
+        
+        NSArray *features = [detector featuresInImage:image options:opts];
+        
+        if (features.count>0) {
+            CIFeature *cameraPhoto = features[0];
+            CGRect bounds = cameraPhoto.bounds;
+        }
+        
         UIImageWriteToSavedPhotosAlbum(originalImage, self, @selector(image:finishedSavingWithError:contextInfo:), nil);
     }
     
@@ -329,6 +355,54 @@
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations
 {
     NSLog(@"%@", [locations lastObject]);
+    UILocalNotification *notification = [[UILocalNotification alloc] init];
+    notification.alertBody = @"Are you forgetting something?";
+    notification.soundName = @"Default";
+    [[UIApplication sharedApplication] presentLocalNotificationNow:notification];
+}
+
+- (void)setUpLocationStuff {
+    self.region = [[CLBeaconRegion alloc] initWithProximityUUID:[[NSUUID alloc] initWithUUIDString:@"8492e75f-4fd6-469d-b132-043fe94921d8"] identifier:@"pwpowphone"];
+    [self.locationManager startMonitoringForRegion:self.region];
+    
+    // Real location
+    CLRegion *realRegion = [[CLCircularRegion alloc] initWithCenter:CLLocationCoordinate2DMake(42, 2) radius:200 identifier:@"lost in cataluña"];
+    [self.locationManager startMonitoringForRegion:realRegion];
+    
+    
+    [self.locationManager startUpdatingLocation];
+}
+
+-(void)locationManager:(CLLocationManager *)manager didChangeAuthorizationStatus:(CLAuthorizationStatus)status{
+
+    if (status == kCLAuthorizationStatusAuthorizedAlways || status == kCLAuthorizationStatusAuthorizedWhenInUse) {
+        
+        if (!self.region) {
+            [self setUpLocationStuff];
+        }
+        
+        
+    }
+
+}
+
+#pragma mark iBeacons Delegate
+
+-(void)locationManager:(CLLocationManager *)manager didRangeBeacons:(NSArray *)beacons inRegion:(CLBeaconRegion *)region{
+    NSLog(@"%@", [beacons firstObject]);
+    if ([region.identifier isEqualToString:@"pwpowphone"]) {
+        CLBeacon *beacon = beacons[0];
+        NSLog(@"major:%@, minor:%@",beacon.major,beacon.minor);
+        NSLog(@"Proximity:%ld", beacon.proximity);
+    }
+}
+
+-(void)locationManager:(CLLocationManager *)manager didEnterRegion:(CLRegion *)region{
+
+}
+
+-(void)locationManager:(CLLocationManager *)manager didExitRegion:(CLRegion *)region{
+    NSLog(@"Region:%@",region.identifier);
 }
 
 

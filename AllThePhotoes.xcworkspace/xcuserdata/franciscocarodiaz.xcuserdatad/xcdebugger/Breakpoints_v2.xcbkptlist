@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "AllThePhotoes/PhotoViewController.m"
-            timestampString = "437592014.26975"
+            timestampString = "437937044.762465"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "111"
-            endingLineNumber = "111"
-            landmarkName = "-mapView:didAddAnnotationViews:"
+            startingLineNumber = "311"
+            endingLineNumber = "311"
+            landmarkName = "-imagePickerController:didFinishPickingMediaWithInfo:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
